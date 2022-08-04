@@ -1,0 +1,14 @@
+#lang sicp
+
+(define (sum a term b next)
+  (define (iter a result)
+    (if (= a b)
+        result
+        (iter (next 1) (+ result (term result)) )))
+  (iter a 0)
+)
+
+(define (inc x) (+ x 1))
+(define (id x) x)
+
+
