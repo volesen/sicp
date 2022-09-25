@@ -1,9 +1,9 @@
-#lang sicp
+#lang racket
 
-(#%require "utils.rkt")
+(require rackunit)
+(require "utils.rkt")
 
-
-(define empty-board nil)
+(define empty-board null)
 
 (define (adjoin-position new-row k rest-of-queens)
   (let ((queen (cons new-row k)))
@@ -37,9 +37,9 @@
   (queen-cols board-size))
 
 
-(adjoin-position 4 3 (list (cons 1 1) (cons 2 3)))
-
-(enumerate-interval 1 10)
+(check-equal?
+ (adjoin-position 4 3 (list (cons 1 1) (cons 2 3)))
+ (list (cons 4 3) (cons 1 1) (cons 2 3)))
 
 (queens 4)
 
